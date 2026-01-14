@@ -81,8 +81,9 @@ jobs:
             echo "CHECK_LEGACY_BRANCH=true" >> $GITHUB_ENV
         fi
 
-    - name: Install Build Dependencies
+    - name: Enable multiarch and install dependencies
       run: |
+        sudo dpkg --add-architecture i386
         sudo apt update
         sudo apt install -y \
         git repo bc bison build-essential curl flex g++-multilib gcc-multilib gnupg gperf \
